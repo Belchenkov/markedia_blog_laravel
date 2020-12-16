@@ -45,7 +45,6 @@
                                 </div>
                             </div>
                             <!-- /.card-body -->
-
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Сохранить</button>
                             </div>
@@ -53,7 +52,6 @@
 
                     </div>
                     <!-- /.card -->
-
                 </div>
                 <!-- /.col -->
             </div>
