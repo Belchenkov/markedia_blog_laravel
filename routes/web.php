@@ -23,4 +23,5 @@ Route::group([
 ], function () {
     Route::get('/', 'MainController@index')->name('admin.index');
     Route::resource('/categories', 'CategoryController');
+    Route::resource('/tags', 'TagController');
 });
