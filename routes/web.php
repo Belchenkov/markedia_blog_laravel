@@ -24,4 +24,5 @@ Route::group([
     Route::get('/', 'MainController@index')->name('admin.index');
     Route::resource('/categories', 'CategoryController');
     Route::resource('/tags', 'TagController');
+    Route::resource('/posts', 'PostController');
 });
