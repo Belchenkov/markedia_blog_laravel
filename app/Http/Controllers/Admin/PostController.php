@@ -46,8 +46,22 @@ class PostController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'title' => 'required'
+            'title' => 'required',
+            'description' => 'required',
+            'content' => 'required',
+            'category_id' => 'required|integer',
+            'thumbnail' => 'nullable|image',
         ]);
+
+        $data = $request->all();
+
+        if ($request->hasFile('thumbnail')) {
+            $folder = date('Y-m-d');
+            $data['thumbnail'] = $request->file('thumbnail')->store('images/' . $folder);
+        }
+
+        $post = Post::create($data);
+        $post->tags()->sync($request->tags);
 
         return redirect()
             ->route('posts.index')

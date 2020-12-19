@@ -53,7 +53,7 @@
                                 <tr>
                                     <td>{{ $post->id }}</td>
                                     <td>{{ $post->title }}</td>
-                                    <td>{{ $post->category->title }}</td>
+                                    <td>{{ $post->category->title ?? ''}}</td>
                                     <td>{{ $post->tags }}</td>
                                     <td>{{ $post->created_at }}</td>
                                     <td>
