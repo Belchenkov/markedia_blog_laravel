@@ -39,6 +39,41 @@ class UserController extends Controller
 
         session()->flash('error', 'Ошибка регистрации');
         return redirect()->route('register');
+    }
 
+    public function loginForm(): View
+    {
+        return view('user.login');
+    }
+
+    public function login(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        if (Auth::attempt([
+            'email' => $request->email,
+            'password' => $request->password
+        ])) {
+            session()->flash('success', 'Можете работать в системе');
+
+            if (Auth::user()->is_admin) {
+                return redirect()->route('admin.index');
+            }
+
+            return redirect()->home();
+        }
+
+        session()->flash('error', 'Ошибка авторизации');
+        return redirect()->back();
+    }
+
+    public function logout(): RedirectResponse
+    {
+        Auth::logout();
+
+        return redirect()->route('login.create');
     }
 }

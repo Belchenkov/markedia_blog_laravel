@@ -19,7 +19,8 @@ Route::get('/', function () {
 
 Route::group([
     'prefix' => 'admin',
-    'namespace' => 'Admin'
+    'namespace' => 'Admin',
+    'middleware' => 'admin'
 ], function () {
     Route::get('/', 'MainController@index')->name('admin.index');
     Route::resource('/categories', 'CategoryController');
@@ -27,6 +28,18 @@ Route::group([
     Route::resource('/posts', 'PostController');
 });
 
-Route::get('/register', 'UserController@create')->name('register.create');
-Route::post('/register', 'UserController@store')->name('register.store');
+Route::group([
+    'middleware' => 'guest'
+], function () {
+    Route::get('/register', 'UserController@create')->name('register.create');
+    Route::post('/register', 'UserController@store')->name('register.store');
+    Route::get('/login', 'UserController@loginForm')->name('login.create');
+    Route::post('/login', 'UserController@login')->name('login.store');
+});
+
+Route::group([
+    'middleware' => 'auth'
+], function () {
+    Route::get('/logout', 'UserController@logout')->name('logout');
+});
 
