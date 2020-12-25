@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -94,6 +93,13 @@ class TagController extends Controller
      */
     public function destroy(int $id): RedirectResponse
     {
+        $tag = Tag::find($id);
+
+        if ($tag->posts->count()) {
+            return redirect('tags.index')
+                ->with('error', 'Ошибка! У тега есть записи!');
+        }
+
         Tag::destroy($id);
 
         return redirect()
