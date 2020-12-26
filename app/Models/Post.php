@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -66,5 +67,11 @@ class Post extends Model
         }
 
         return asset("uploads/{$this->thumbnail}");
+    }
+
+    public function getPostDate(): string
+    {
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)
+            ->format('d F, Y');
     }
 }
