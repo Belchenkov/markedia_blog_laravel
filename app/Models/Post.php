@@ -22,6 +22,8 @@ class Post extends Model
         'thumbnail'
     ];
 
+    public $timestamps = true;
+
     public function tags(): belongsToMany
     {
         return $this->belongsToMany(Tag::class)->withTimestamps();
