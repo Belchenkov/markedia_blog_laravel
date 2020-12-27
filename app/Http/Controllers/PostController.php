@@ -18,6 +18,11 @@ class PostController extends Controller
 
     public function show(string $slug)
     {
-        return view('posts.show');
+        $post = Post::where('slug', $slug)->firstOrFail();
+
+        $post->views++;
+        $post->save();
+
+        return view('posts.show', compact('post'));
     }
 }

@@ -32,19 +32,19 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="marketing-index.html">Home</a>
+                            <a class="nav-link" href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="marketing-category.html">Marketing</a>
+                            <a
+                                class="nav-link"
+                                href="{{ route('categories.single', ['slug', 'marketing']) }}"
+                            >Marketing</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="marketing-category.html">Make Money</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="marketing-blog.html">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="marketing-contact.html">Contact Us</a>
+                            <a
+                                href="{{ route('categories.single', ['slug', 'make-money']) }}"
+                                class="nav-link"
+                            >Make Money</a>
                         </li>
                     </ul>
                     <form class="form-inline">
