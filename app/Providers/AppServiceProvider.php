@@ -26,13 +26,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
-
         view()->composer('layouts.sidebar', function ($view) {
             if (Cache::has('cats')) {
                 $cats = Cache::get('cats');
             } else {
-                $cats = Category::withCount('posts')->orderBy('posts_count', 'desc')->get();
+                $cats = Category::withCount('posts')
+                    ->orderBy('posts_count', 'desc')
+                    ->get();
                 Cache::put('cats', $cats, 30);
             }
 
