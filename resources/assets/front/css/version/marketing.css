@@ -345,12 +345,12 @@ a:focus,
 .fa-star,
 .pp a,
 .blog-list-widget small {
-    color: #f9ca27 !important;
+    color: #2485bf !important;
 }
 
 .market-header .navbar,
 .newsletter-widget.text-center {
-    border-color: #f9ca27;
+    border-color: #2485bf;
 }
 
 .color-yellow a,
@@ -362,5 +362,5 @@ a:focus,
 .dropdown-item:hover,
 .bg-inverse {
     color: #111111 !important;
-    background-color: #f9ca27 !important;
+    background-color: #2485bf !important;
 }
