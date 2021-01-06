@@ -9346,6 +9346,11 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 
 /* BASIC
 **************************************/
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;700;900&display=swap');
+
+* {
+    font-family: 'Exo', sans-serif!important;
+}
 
 body {
     font-size: 15px;
@@ -13299,12 +13304,12 @@ a:focus,
 .fa-star,
 .pp a,
 .blog-list-widget small {
-    color: #f9ca27 !important;
+    color: #2485bf !important;
 }
 
 .market-header .navbar,
 .newsletter-widget.text-center {
-    border-color: #f9ca27;
+    border-color: #2485bf;
 }
 
 .color-yellow a,
@@ -13316,5 +13321,5 @@ a:focus,
 .dropdown-item:hover,
 .bg-inverse {
     color: #111111 !important;
-    background-color: #f9ca27 !important;
+    background-color: #2485bf !important;
 }
